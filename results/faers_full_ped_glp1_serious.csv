@@ -1,0 +1,6 @@
+subset,N,serious_n,serious_pct,death,life_threat,hospitalization,disability,req_intervention,other_serious_OT,outcome_missing
+GLP-1 儿科全部,540,214,39.6%,8,20,178,10,10,190,198
+其中: 自杀相关,20,13,65.0%,1,5,10,1,1,12,1
+其中: 抑郁,8,5,62.5%,0,1,5,0,0,5,0
+其中: 焦虑,11,3,27.3%,0,0,3,0,0,4,4
+其中: 进食障碍,4,4,100.0%,0,1,4,2,1,1,0

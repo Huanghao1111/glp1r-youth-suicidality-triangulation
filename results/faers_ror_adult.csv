@@ -1,0 +1,41 @@
+stratum,drug,event_group,a,b,c,d,ror,lo,hi,haldane,signal
+adult,Semaglutide,Suicidality,62,15966,23084,3516595,0.592,0.461,0.759,False,False
+adult,Semaglutide,Depression,306,15722,33107,3506572,2.061,1.84,2.31,False,True
+adult,Semaglutide,Anxiety,304,15724,44029,3495650,1.535,1.37,1.72,False,True
+adult,Semaglutide,Eating disorder,23,16005,2957,3536722,1.719,1.14,2.591,False,True
+adult,Semaglutide,Psychosis,25,16003,10362,3529317,0.532,0.359,0.788,False,False
+adult,Liraglutide,Suicidality,61,12531,23085,3520030,0.742,0.577,0.955,False,False
+adult,Liraglutide,Depression,143,12449,33270,3509845,1.212,1.027,1.429,False,True
+adult,Liraglutide,Anxiety,186,12406,44147,3498968,1.188,1.028,1.374,False,True
+adult,Liraglutide,Eating disorder,19,12573,2961,3540154,1.807,1.15,2.838,False,True
+adult,Liraglutide,Psychosis,16,12576,10371,3532744,0.433,0.265,0.708,False,False
+adult,Tirzepatide,Suicidality,227,101807,22919,3430754,0.334,0.293,0.38,False,False
+adult,Tirzepatide,Depression,701,101333,32712,3420961,0.723,0.671,0.78,False,False
+adult,Tirzepatide,Anxiety,911,101123,43422,3410251,0.708,0.662,0.756,False,False
+adult,Tirzepatide,Eating disorder,57,101977,2923,3450750,0.66,0.508,0.858,False,False
+adult,Tirzepatide,Psychosis,48,101986,10339,3443334,0.157,0.118,0.208,False,False
+adult,Exenatide,Suicidality,1,805,23145,3531756,0.19,0.027,1.347,False,False
+adult,Exenatide,Depression,9,797,33404,3521497,1.19,0.617,2.297,False,False
+adult,Exenatide,Anxiety,13,793,44320,3510581,1.299,0.751,2.246,False,False
+adult,Exenatide,Eating disorder,0,806,2980,3551921,0.739,0.046,11.825,True,False
+adult,Exenatide,Psychosis,1,805,10386,3544515,0.424,0.06,3.014,False,False
+adult,Dulaglutide,Suicidality,38,14509,23108,3518052,0.399,0.29,0.548,False,False
+adult,Dulaglutide,Depression,221,14326,33192,3507968,1.63,1.427,1.863,False,True
+adult,Dulaglutide,Anxiety,236,14311,44097,3497063,1.308,1.15,1.488,False,True
+adult,Dulaglutide,Eating disorder,11,14536,2969,3538191,0.902,0.499,1.631,False,False
+adult,Dulaglutide,Psychosis,17,14530,10370,3530790,0.398,0.247,0.641,False,False
+adult,Lixisenatide,Suicidality,1,2543,23145,3530018,0.06,0.008,0.426,False,False
+adult,Lixisenatide,Depression,7,2537,33406,3519757,0.291,0.138,0.61,False,False
+adult,Lixisenatide,Anxiety,9,2535,44324,3508839,0.281,0.146,0.541,False,False
+adult,Lixisenatide,Eating disorder,1,2543,2979,3550184,0.469,0.066,3.329,False,False
+adult,Lixisenatide,Psychosis,1,2543,10386,3542777,0.134,0.019,0.953,False,False
+adult,Setmelanotide,Suicidality,0,31,23146,3532530,2.422,0.148,39.591,True,False
+adult,Setmelanotide,Depression,1,30,33412,3522264,3.514,0.479,25.769,False,False
+adult,Setmelanotide,Anxiety,1,30,44332,3511344,2.64,0.36,19.361,False,False
+adult,Setmelanotide,Eating disorder,1,30,2979,3552697,39.753,5.419,291.605,False,True
+adult,Setmelanotide,Psychosis,0,31,10387,3545289,5.418,0.331,88.542,True,False
+adult,GLP1-class(all),Suicidality,379,145570,22767,3386991,0.387,0.35,0.429,False,False
+adult,GLP1-class(all),Depression,1208,144741,32205,3377553,0.875,0.826,0.927,False,False
+adult,GLP1-class(all),Anxiety,1469,144480,42864,3366894,0.799,0.758,0.841,False,False
+adult,GLP1-class(all),Eating disorder,109,145840,2871,3406887,0.887,0.732,1.074,False,False
+adult,GLP1-class(all),Psychosis,107,145842,10280,3399478,0.243,0.201,0.294,False,False
