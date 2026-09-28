@@ -14,8 +14,9 @@ Three evidence layers with largely non-overlapping bias structures are triangula
 
 ```
 scripts/    analysis and plotting pipeline (Python 3; R/TwoSampleMR replication noted in text)
-results/    derived summary tables (CSV) produced by the pipeline
 ```
+
+Derived result tables and manuscript figures are archived on Zenodo: <https://doi.org/10.5281/zenodo.23008872>
 
 Key scripts:
 
@@ -37,8 +38,8 @@ Key scripts:
 - **iPSYCH suicide-attempt GWAS**: available to qualified researchers on application to the iPSYCH consortium (Danish institutional affiliation and Danish Data Protection Agency approval required)
 - **GIANT / Million Veteran Program BMI**: public repositories
 
-Raw GWAS summary statistics and FAERS raw quarterly files are not redistributed here; all derived quantities needed to reproduce the reported estimates are in `results/`.
+Raw GWAS summary statistics and FAERS raw quarterly files are not redistributed; result-level derived quantities are archived on Zenodo (DOI above). SNP-level effect sizes from restricted-access iPSYCH data are excluded per its data-use terms.
 
 ## Status
 
-Manuscript under review. This repository will be made public upon acceptance, with a citable DOI via Zenodo.
+Manuscript under review. Companion dataset: <https://doi.org/10.5281/zenodo.23008872>.
