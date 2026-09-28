@@ -23,12 +23,16 @@ Key scripts:
 | Script | Purpose |
 |---|---|
 | `faers_download.py`, `faers_process.py`, `faers_pediatric.py`, `faers_analyze.py` | FAERS quarterly download, deduplication (latest version per CASEID), pediatric subsetting, ROR/IC025 |
+| `faers_phase2.py`, `faers_phase2_zippass.py`, `faers_phase2_assemble.py` | revision-round sensitivity/context analyses: quarter-resolved disproportionality, masking assessment, age-missingness sensitivity, primary-suspect-only exposure, ADHD comparator class, GI control events |
 | `yrbs_pilot.py`, `yrbs_weightcontrol.py` | YRBS 2025 survey-weighted models |
+| `yrbs_extended_covariates.py` | YRBS 2025 extended-covariate sensitivity (bullying, NSSI, binge eating, food insecurity, sexual identity) |
 | `extract_cis.py`, `clump_harmonize.py` | GLP1R cis-window extraction (locus ±100 kb, r² < 0.3) and harmonization |
 | `run_child_mr.py`, `run_child_mr_developmental.py` | wave-specific childhood cis-MR and fixed-infant-instrument developmental scan |
 | `extract_adult_meta_mvp.py`, `run_adult_meta_mvp_mr.py`, `run_adult_relaxed.py` | adult BMI meta-analysis instruments and MR |
 | `run_ld_gls.py` | LD-corrected generalized-least-squares sensitivity |
-| `plot_submission_fig1.py`, `plot_developmental_pub.py`, `plot_submission_figS1.py` | manuscript figures (vector PDF) |
+| `plot_submission_fig1.py`, `plot_developmental_pub.py`, `plot_submission_figS1.py`, `plot_figure_s2.py` | manuscript and supplement figures (vector PDF) |
+
+> **Figure-numbering note:** script filenames predate the final supplement renumbering. In the published supplement, the quarter-resolved FAERS figure (`plot_figure_s2.py`) appears as **Figure S1**, and the wave-specific GLP1R cis-MR forest plot (`plot_submission_figS1.py`) appears as **Figure S2**.
 
 ## Data sources
 
