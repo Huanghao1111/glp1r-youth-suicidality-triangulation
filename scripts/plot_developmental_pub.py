@@ -52,6 +52,42 @@ for a in (ax, ax2):
     for s in ("top", "right"):
         a.spines[s].set_visible(False)
 
+YMIN, YMAX = 0.09, 20          # panel A axis limits
+ARTOP, ARBOT = 16.0, 0.25      # arrow tips end here (short stubs, per author preference)
+
+def clipped_errorbar(a, x, y, lo, hi, color, marker="o", ms=3.2, mew=0.9, mfc=None,
+                     lw=0.9, e_lw=0.9, alpha=0.95, zorder=3, cap_hw=0.055,
+                     connect=False):
+    """Forest-plot convention: CIs exceeding the axis range are clipped just
+    inside the edge and terminated with an outward arrowhead marker."""
+    x = np.asarray(x, float); y = np.asarray(y, float)
+    lo = np.asarray(lo, float); hi = np.asarray(hi, float)
+    if mfc is None:
+        mfc = color
+    if connect:
+        a.plot(x, y, "-", color=color, lw=lw, alpha=alpha, zorder=zorder - 0.1)
+    ar_ms = ms + 1.3
+    for xi, yi, loi, hii in zip(x, y, lo, hi):
+        up, dn = hii > ARTOP, loi < ARBOT
+        ytop = ARTOP if up else hii
+        ybot = ARBOT if dn else loi
+        a.plot([xi, xi], [ybot, ytop], color=color, lw=e_lw, alpha=alpha,
+               zorder=zorder, solid_capstyle="butt")
+        if up:
+            a.plot([xi], [ytop], marker="^", mfc=color, mec="none", ms=ar_ms,
+                   alpha=alpha, zorder=zorder, clip_on=False)
+        else:
+            a.plot([xi - cap_hw, xi + cap_hw], [hii, hii], color=color, lw=e_lw,
+                   alpha=alpha, zorder=zorder, solid_capstyle="butt")
+        if dn:
+            a.plot([xi], [ybot], marker="v", mfc=color, mec="none", ms=ar_ms,
+                   alpha=alpha, zorder=zorder, clip_on=False)
+        else:
+            a.plot([xi - cap_hw, xi + cap_hw], [loi, loi], color=color, lw=e_lw,
+                   alpha=alpha, zorder=zorder, solid_capstyle="butt")
+    a.plot(x, y, ls="none", marker=marker, ms=ms, mew=mew, mfc=mfc, mec=color,
+           alpha=alpha, zorder=zorder + 0.1)
+
 # ---------------- Panel A ----------------
 g = "GLP1R"
 for model in ["Model1", "Model2", "Model3"]:
@@ -60,15 +96,13 @@ for model in ["Model1", "Model2", "Model3"]:
     x = sub["age"] + DODGE[model]
     strong = sub["mean_F"] >= 10
     s_s, s_w = sub[strong], sub[~strong]
-    ax.errorbar(x[strong], s_s["or_down"],
-                yerr=[s_s["or_down"] - s_s["or_down_lo"], s_s["or_down_hi"] - s_s["or_down"]],
-                fmt="o-", color=COL[model], ecolor=COL[model], elinewidth=0.9,
-                capsize=1.8, capthick=0.9, ms=3.2, lw=0.9, mew=0.9, alpha=0.95, zorder=3)
+    clipped_errorbar(ax, x[strong], s_s["or_down"], s_s["or_down_lo"], s_s["or_down_hi"],
+                     color=COL[model], ms=3.2, mew=0.9, lw=0.9, e_lw=0.9,
+                     alpha=0.95, zorder=3, cap_hw=0.055, connect=True)
     if len(s_w):
-        ax.errorbar(x[~strong], s_w["or_down"],
-                    yerr=[s_w["or_down"] - s_w["or_down_lo"], s_w["or_down_hi"] - s_w["or_down"]],
-                    fmt="o", mfc="none", mec=COL[model], ecolor=COL[model], elinewidth=0.7,
-                    capsize=1.5, capthick=0.7, ms=3.4, lw=0, mew=0.8, alpha=0.45, zorder=2)
+        clipped_errorbar(ax, x[~strong], s_w["or_down"], s_w["or_down_lo"], s_w["or_down_hi"],
+                         color=COL[model], ms=3.4, mew=0.8, mfc="none", e_lw=0.7,
+                         alpha=0.45, zorder=2, cap_hw=0.046)
 
 # adult meta squares
 subA = adult.set_index("model")
@@ -76,14 +110,14 @@ for model in ["Model1", "Model2", "Model3"]:
     if model not in subA.index:
         continue
     r = subA.loc[model]
-    ax.errorbar(X_ADULT + DODGE[model] * 2.2, r["or_down"],
-                yerr=[[r["or_down"] - r["or_down_lo"]], [r["or_down_hi"] - r["or_down"]]],
-                fmt="s", color=COL[model], ecolor=COL[model], elinewidth=0.9,
-                capsize=1.8, capthick=0.9, ms=4.2, lw=0, mew=0.9, alpha=0.95, zorder=3)
+    clipped_errorbar(ax, [X_ADULT + DODGE[model] * 2.2], [r["or_down"]],
+                     [r["or_down_lo"]], [r["or_down_hi"]],
+                     color=COL[model], marker="s", ms=4.2, mew=0.9, e_lw=0.9,
+                     alpha=0.95, zorder=3, cap_hw=0.10)
 
 ax.axhline(1, color="0.55", ls="--", lw=0.8, zorder=1)
 ax.set_yscale("log")
-ax.set_ylim(0.09, 20)
+ax.set_ylim(YMIN, YMAX)
 ax.set_yticks([0.125, 0.25, 0.5, 1, 2, 4, 8, 16])
 ax.set_yticklabels(["0.125", "0.25", "0.5", "1", "2", "4", "8", "16"])
 ax.set_xticks(XT); ax.set_xticklabels(XTL)
@@ -91,10 +125,10 @@ ax.set_xlim(-0.8, 20.3)
 ax.set_xlabel("Age at BMI measurement (years)")
 ax.set_ylabel("OR for suicide attempt\nper 1-SD lower BMI z-score (log scale)")
 ax.set_title("A", fontsize=10, fontweight="bold", loc="left", pad=4)
-ax.text(0.985, 0.965, "Adult layer: BMI meta-analysis (N≈1.11M)",
+ax.text(0.985, 0.965, "Adult layer: BMI meta-analysis (N\u22481.11M)",
         transform=ax.transAxes, ha="right", va="top", fontsize=6.2, color="0.35",
         bbox=dict(boxstyle="round,pad=0.4", fc="0.97", ec="0.85", lw=0.6))
-ax.text(1.82, 15.2, "Valid-instrument\nwindow (F≥10)", fontsize=6.2, color="#2166ac",
+ax.text(1.82, 15.2, "Valid-instrument\nwindow (F\u226510)", fontsize=6.2, color="#2166ac",
         ha="center", va="center", alpha=0.9, linespacing=1.3)
 
 # ---------------- Panel B ----------------
