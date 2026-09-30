@@ -125,10 +125,10 @@ ax.set_xlim(-0.8, 20.3)
 ax.set_xlabel("Age at BMI measurement (years)")
 ax.set_ylabel("OR for suicide attempt\nper 1-SD lower BMI z-score (log scale)")
 ax.set_title("A", fontsize=10, fontweight="bold", loc="left", pad=4)
-ax.text(0.985, 0.965, "Adult layer: BMI meta-analysis (N\u22481.11M)",
+ax.text(0.985, 0.965, "Adult layer: BMI meta-analysis (N≈1.11M)",
         transform=ax.transAxes, ha="right", va="top", fontsize=6.2, color="0.35",
         bbox=dict(boxstyle="round,pad=0.4", fc="0.97", ec="0.85", lw=0.6))
-ax.text(1.82, 15.2, "Valid-instrument\nwindow (F\u226510)", fontsize=6.2, color="#2166ac",
+ax.text(1.82, 15.2, "Valid-instrument\nwindow (F≥10)", fontsize=6.2, color="#2166ac",
         ha="center", va="center", alpha=0.9, linespacing=1.3)
 
 # ---------------- Panel B ----------------

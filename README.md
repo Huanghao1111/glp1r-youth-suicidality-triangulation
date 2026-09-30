@@ -1,6 +1,6 @@
 # GLP-1 Receptor Agonists and Suicide-Attempt Risk in Youth: A Triangulation Study
 
-Analysis code and derived result tables for the manuscript submitted to the *Journal of the American Academy of Child & Adolescent Psychiatry* (New Research; under review).
+Analysis code and derived result tables for the manuscript submitted to the *Journal of Child Psychology and Psychiatry* (Original Article; under review).
 
 ## Study design
 
@@ -16,7 +16,7 @@ Three evidence layers with largely non-overlapping bias structures are triangula
 scripts/    analysis and plotting pipeline (Python 3; R/TwoSampleMR replication noted in text)
 ```
 
-Derived result tables and manuscript figures are archived on Zenodo: <https://doi.org/10.5281/zenodo.23008872>
+Derived result tables and manuscript figures are archived on Zenodo: <https://doi.org/10.5281/zenodo.23008871>
 
 Key scripts:
 
@@ -27,6 +27,7 @@ Key scripts:
 | `faers_phase3_zippass.py`, `faers_phase3_assemble.py` | notoriety-context comparator panel: stable-warning psychotropic classes (SSRIs, second-generation antipsychotics) vs GI control events, pre/post-2023 fold-change |
 | `yrbs_pilot.py`, `yrbs_weightcontrol.py` | YRBS 2025 survey-weighted models |
 | `yrbs_extended_covariates.py` | YRBS 2025 extended-covariate sensitivity (bullying, NSSI, binge eating, food insecurity, sexual identity) |
+| `yrbs_sex_interaction.py` | YRBS 2025 sex-stratified models and formal sex × weight-loss-intention interaction test |
 | `extract_cis.py`, `clump_harmonize.py` | GLP1R cis-window extraction (locus ±100 kb, r² < 0.3) and harmonization |
 | `run_child_mr.py`, `run_child_mr_developmental.py` | wave-specific childhood cis-MR and fixed-infant-instrument developmental scan |
 | `extract_adult_meta_mvp.py`, `run_adult_meta_mvp_mr.py`, `run_adult_relaxed.py` | adult BMI meta-analysis instruments and MR |
@@ -34,7 +35,7 @@ Key scripts:
 | `run_coloc.py`, `run_coloc_susie.py` | GLP1R ±250-kb colocalization: single-variant coloc.abf posteriors and SuSiE-RSS multi-signal sensitivity |
 | `run_steiger_filter.py` | standard Steiger directionality filtering (Fisher z test on variant–trait correlations) |
 | `supp_rev3.py` | supplementary table assembly patches (comparator panel, colocalization posteriors) |
-| `plot_submission_fig1.py`, `plot_developmental_pub.py`, `plot_submission_figS1.py`, `plot_figure_s2.py`, `plot_graphical_abstract.py` | manuscript and supplement figures plus graphical abstract (vector PDF) |
+| `plot_submission_fig1.py`, `plot_developmental_pub.py`, `plot_submission_figS1.py`, `plot_figure_s2.py`, `plot_figS_sex.py`, `plot_graphical_abstract.py` | manuscript and supplement figures plus graphical abstract (vector PDF) |
 
 > **Figure-numbering note:** script filenames predate the final supplement renumbering. In the published supplement, the quarter-resolved FAERS figure (`plot_figure_s2.py`) appears as **Figure S1**, and the wave-specific GLP1R cis-MR forest plot (`plot_submission_figS1.py`) appears as **Figure S2**.
 
@@ -50,4 +51,4 @@ Raw GWAS summary statistics and FAERS raw quarterly files are not redistributed;
 
 ## Status
 
-Manuscript under review. Companion dataset: <https://doi.org/10.5281/zenodo.23008872>.
+Manuscript under review. Companion dataset: <https://doi.org/10.5281/zenodo.23008871>.
