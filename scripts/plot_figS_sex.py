@@ -87,7 +87,7 @@ axA.set_title("A  Weight-loss intention \u2192 suicidality, by sex", fontsize=7.
               fontweight="bold", loc="left")
 axA.spines[["top", "right"]].set_visible(False)
 hF = axA.errorbar([], [], yerr=1, fmt="o", ms=4.0, mec=SEXC["Female"], ecolor=SEXC["Female"], mfc=SEXC["Female"], label="Female")
-hM = axB.errorbar([], [], yerr=1, fmt="o", ms=4.0, mec=SEXC["Male"], ecolor=SEXC["Male"], mfc=SEXC["Male"], label="Male")
+hM = axA.errorbar([], [], yerr=1, fmt="o", ms=4.0, mec=SEXC["Male"], ecolor=SEXC["Male"], mfc=SEXC["Male"], label="Male")
 hO = axA.errorbar([], [], yerr=1, fmt="o", ms=3.8, mec="#333333", ecolor="#333333", mfc="white", label="all BMI (open)")
 hN = axA.errorbar([], [], yerr=1, fmt="o", ms=4.2, mec="#333333", ecolor="#333333", mfc="#333333", label="normal BMI (filled)")
 axA.legend(handles=[hF, hM, hO, hN], loc="lower left", bbox_to_anchor=(0.005, 0.03),
